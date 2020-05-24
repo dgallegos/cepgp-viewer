@@ -1,0 +1,9 @@
+.code {
+	background: rgba(255, 255, 255, 0.06);
+	display: inline;
+}
+
+.upload-cepgp {
+	display: block;
+	margin: 20px 0;
+}

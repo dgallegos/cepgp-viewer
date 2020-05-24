@@ -1,0 +1,14 @@
+<h2>Upload</h2>
+
+<p class="code">
+  <code>
+    Upload file from ~\World of Warcraft\_classic_\WTF\Account\[USER]\SavedVariables\CEPGP.lua
+  </code>
+</p>
+
+<div class="upload-cepgp">
+	<input class="ng-hide" id="input-file-id" type="file" name="file" (change)="handleFileInput($event.target.files)" />
+</div>
+
+<button mat-raised-button color="accent" (click)="uploadClick()">Submit</button>
+

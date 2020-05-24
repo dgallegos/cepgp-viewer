@@ -1,0 +1,23 @@
+<!-- <mat-sidenav-container [class.m2app-dark]="isDarkTheme">
+ -->
+<header color="primary" class="header">
+	<div class="container">
+		<mat-toolbar color="primary">
+			  <span>Berserk</span>
+
+			  <!-- This fills the remaining space of the current row -->
+			  <span class="example-fill-remaining-space"></span>
+			  <div class="nav-links">
+					<a mat-button [routerLink]="'/'"  routerLinkActive="active"> Players </a>
+					<a mat-button [routerLink]="'/traffic'"  routerLinkActive="active"> Traffic </a>
+				</div>
+		</mat-toolbar>
+	</div>
+</header>
+
+<div class="main-body">
+	<div class="container">
+	  <router-outlet class="router-page"></router-outlet>
+	</div>
+</div>
+<!-- </mat-sidenav-container> -->
