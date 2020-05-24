@@ -16,7 +16,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class UploadComponent implements OnInit {
   fileToUpload: File = null;
   resData: any;
-
+  hide = true;
+  uploadPass: string;
+  uploadResponse: string;
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
@@ -30,13 +32,14 @@ export class UploadComponent implements OnInit {
     const endpoint = '/api/cepgp';
     let formData: FormData = new FormData();
     formData.append('cepgplua', this.fileToUpload);
+    formData.append('uploadPass', this.uploadPass);
     return this.http
       .post(endpoint, formData)
       .subscribe((data: any) => {
         this.resData = data;
-        console.log(this.resData);
+        this.uploadResponse = "Uploaded Successfully!";
       }, err => {
-        console.log(err);
+        this.uploadResponse = err.error;
       });
   }
 }

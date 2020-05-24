@@ -4,6 +4,10 @@ var CepgpService = require('../services/cepgp-service');
 
 /* POST upload listing. */
 router.post('/', function(req, res, next) {
+  // Check Password
+  if (!(req.body.uploadPass && (req.body.uploadPass === "changeme"))) {
+    return res.status(401).send('Bad Password');
+  }
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }

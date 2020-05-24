@@ -7,3 +7,10 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+.weapon-link {
+	color: rgb(105, 240, 174);
+	text-decoration: none;
+	border-bottom: 1px dotted;
+	margin-right: 10px;
+}

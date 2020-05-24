@@ -7,6 +7,9 @@ export interface CEPGPTraffic {
   gpb: number;
   gpa: number;
   itemLink: string;
+  itemName: string;
+  itemId: string;
+  itemUrl: string;
   timeStamp: number;
   prio: number;
 }

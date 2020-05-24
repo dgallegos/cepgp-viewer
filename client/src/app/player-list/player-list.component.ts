@@ -25,7 +25,7 @@ import { CEPGPTraffic } from './../models/cepgp-traffic'
 
 export class PlayerListComponent implements OnInit {
 
-	displayedColumns: string[] = ['player', 'epa', 'gpa', 'prio'];
+	displayedColumns: string[] = ['rank', 'player', 'epa', 'gpa', 'prio'];
   currentCepgp: CEPGPTraffic[];
   dataSource : any;
 

@@ -1,9 +1,17 @@
 .code {
-	background: rgba(255, 255, 255, 0.06);
 	display: inline;
 }
 
 .upload-cepgp {
 	display: block;
-	margin: 20px 0;
+	margin-bottom: 20px;
+}
+
+.upload-pass-container {
+	margin-top: 15px;
+}
+
+.upload-response {
+	margin-top: 15px;
+	display: block;
 }

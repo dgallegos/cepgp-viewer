@@ -43,6 +43,9 @@ CepgpService.buildTrafficArray = function(cepgpTrafficArray) {
 		trafficItem.gpb = cepgpTrafficArray[i]["5"];
 		trafficItem.gpa = cepgpTrafficArray[i]["6"];
 		trafficItem.itemLink = cepgpTrafficArray[i]["7"];
+		trafficItem.itemName = trafficItem.itemLink ? trafficItem.itemLink.split('|h[').pop().split(']|h')[0] : trafficItem.itemLink;
+		trafficItem.itemId = trafficItem.itemLink ? trafficItem.itemLink.split('Hitem:').pop().split(':')[0] : trafficItem.itemLink;
+		trafficItem.itemUrl = trafficItem.itemLink ? 'https://classic.wowhead.com/item=' + trafficItem.itemId : trafficItem.itemLink ;
 		trafficItem.timeStamp = cepgpTrafficArray[i]["8"] ? Number(cepgpTrafficArray[i]["8"]) : 0;
 		trafficItem.prio = null;
 		cepgpTraffic.push(trafficItem);

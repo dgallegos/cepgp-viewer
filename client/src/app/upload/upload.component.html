@@ -6,9 +6,20 @@
   </code>
 </p>
 
-<div class="upload-cepgp">
-	<input class="ng-hide" id="input-file-id" type="file" name="file" (change)="handleFileInput($event.target.files)" />
-</div>
+<div class="upload-form">
+	<mat-form-field appearance="fill" class="upload-pass-container">
+		<mat-label>Upload Password</mat-label>
+		<input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="uploadPass">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+	</mat-form-field>
+	<br/>
+	<div class="upload-cepgp">
+		<input class="ng-hide" id="input-file-id" type="file" name="file" (change)="handleFileInput($event.target.files)" />
+	</div>
 
-<button mat-raised-button color="accent" (click)="uploadClick()">Submit</button>
+	<button mat-raised-button color="accent" (click)="uploadClick()">Submit</button>
+	<span class="upload-response">{{uploadResponse}}</span>	
+</div>
 

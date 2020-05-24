@@ -15,8 +15,16 @@ header {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .mat-toolbar.mat-primary {
 	padding: 0px;
 }
+
+
+.md-form textarea[type=text]:focus:not([readonly]) + label {
+color: rgb(105, 240, 174); }
+.md-form textarea[type=text]:focus:not([readonly]) {
+box-shadow: 0 1px 0 0 rgb(105, 240, 174);
+border-bottom: 1px solid rgb(105, 240, 174); }

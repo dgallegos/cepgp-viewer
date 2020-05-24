@@ -7,43 +7,46 @@
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- Position Column -->
+  <!-- Player Column -->
   <ng-container matColumnDef="player">
     <th mat-header-cell *matHeaderCellDef> Player </th>
     <td mat-cell *matCellDef="let element"> {{element.player}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- Issuer Column -->
   <ng-container matColumnDef="issuer">
     <th mat-header-cell *matHeaderCellDef> Issuer </th>
     <td mat-cell *matCellDef="let element"> {{element.issuer}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+  <!-- Action Column -->
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+    <td mat-cell *matCellDef="let element"> 
+      <a href={{element.itemUrl}} class="weapon-link">{{element.itemName}}</a>
+      <span>{{element.action}}</span>
+    </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- epb Column -->
   <ng-container matColumnDef="epb">
     <th mat-header-cell *matHeaderCellDef> EP Before </th>
     <td mat-cell *matCellDef="let element"> {{element.epb}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- epa Column -->
   <ng-container matColumnDef="epa">
     <th mat-header-cell *matHeaderCellDef> EP After </th>
     <td mat-cell *matCellDef="let element"> {{element.epa}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- gpb Column -->
   <ng-container matColumnDef="gpb">
     <th mat-header-cell *matHeaderCellDef> GP Before </th>
     <td mat-cell *matCellDef="let element"> {{element.gpb}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- gpa Column -->
   <ng-container matColumnDef="gpa">
     <th mat-header-cell *matHeaderCellDef> GP After </th>
     <td mat-cell *matCellDef="let element"> {{element.gpa}} </td>

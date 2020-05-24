@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { CEPGPTraffic } from './../models/cepgp-traffic'
-import { PlayerEPGP } from './../models/player-epgp'
 
 @Injectable({
   providedIn: 'root',
