@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "preinstall" : "cd client && npm install && cd .. && npm run prod --prefix client",
     "start": "nodemon ./bin/www",
     "debug": "nodemon --inspect ./bin/www",
-    "prod": "npm run prod --prefix client && node ./bin/www"
+    "prod": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
