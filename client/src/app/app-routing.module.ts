@@ -6,7 +6,8 @@ import { TrafficComponent } from './traffic/traffic.component';
 import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
-  { path: '',   component: PlayerListComponent }, // redirect to `first-component`
+  { path: '', component: PlayerListComponent }, // redirect to `first-component`
+  { path: 'players', component: PlayerListComponent },
   { path: 'traffic', component: TrafficComponent },
   { path: 'upload', component: UploadComponent },
   { path: '**', component: PlayerListComponent },

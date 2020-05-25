@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "debug": "nodemon --inspect ./bin/www"
+    "debug": "nodemon --inspect ./bin/www",
+    "prod": "npm run prod --prefix client && node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

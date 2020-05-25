@@ -17,19 +17,26 @@ app.use(logger('dev'));
 // app.use(express.json({limit: '50mb'}));
 // app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload({
   limits: { fileSize: 50 * 1024 * 1024 },
 }));
 
 // We uploads large lua files
-
-
 app.use('/api/cepgp', cepgpRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(express.static(path.join(__dirname,'client/dist/cepgp-viewer')));
+
+// app.get('/upload', function(req, res, next) {
+//   res.status(200).sendFile(path.join(__dirname,'client/dist/cepgp-viewer/index.html'));
+// });
+
+// app.get('/traffic', function(req, res, next) {
+//   res.status(200).sendFile(path.join(__dirname,'client/dist/cepgp-viewer/index.html'));
+// });
+
+app.use('**', function(req, res, next) {
+  res.status(200).sendFile(path.join(__dirname,'client/dist/cepgp-viewer/index.html'));
 });
 
 // error handler
