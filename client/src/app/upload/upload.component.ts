@@ -18,6 +18,7 @@ export class UploadComponent implements OnInit {
   resData: any;
   hide = true;
   uploadPass: string;
+  guildRoster: string
   uploadResponse: string;
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -32,6 +33,7 @@ export class UploadComponent implements OnInit {
     const endpoint = '/api/cepgp';
     let formData: FormData = new FormData();
     formData.append('cepgplua', this.fileToUpload);
+    formData.append('guildRoster', this.guildRoster);
     formData.append('uploadPass', this.uploadPass);
     return this.http
       .post(endpoint, formData)

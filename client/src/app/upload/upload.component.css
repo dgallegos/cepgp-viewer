@@ -15,3 +15,10 @@
 	margin-top: 15px;
 	display: block;
 }
+
+.guild-roster-container {
+	width: 280px;
+}
+.guild-roster-input {
+	width: 100%;
+}

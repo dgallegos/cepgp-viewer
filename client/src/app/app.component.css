@@ -6,6 +6,16 @@
 header {
 	background: #7b1fa2;
 }
+a:link {
+  text-decoration: none ;
+} 
+
+.guild-name-header {
+color:white;
+text-decoration: none;
+}
+
+
 .main-body {
     background-color: #303030;
     color: white;

@@ -1,10 +1,5 @@
 <h2>Upload</h2>
 
-<p class="code">
-  <code>
-    Upload file from ~\World of Warcraft\_classic_\WTF\Account\[USER]\SavedVariables\CEPGP.lua
-  </code>
-</p>
 
 <div class="upload-form">
 	<mat-form-field appearance="fill" class="upload-pass-container">
@@ -15,7 +10,24 @@
     </button>
 	</mat-form-field>
 	<br/>
+	<p class="code">
+	  <code>
+	    Optional: Guild Roster Manager: Name:Rank:Level:Class -> Copy/Paste Data in "Raid Data" field
+	  </code>
+	</p>
+	<br/>
+  <mat-form-field appearance="fill" class="guild-roster-container">
+    <mat-label>Guild Roster</mat-label>
+    <textarea matInput class="guild-roster-input" [(ngModel)]="guildRoster"></textarea>
+  </mat-form-field>
+	<br/>
 	<div class="upload-cepgp">
+		<p class="code">
+		  <code>
+		    Upload file from ~\World of Warcraft\_classic_\WTF\Account\[USER]\SavedVariables\CEPGP.lua
+		  </code>
+		</p>
+		<br/>
 		<input class="ng-hide" id="input-file-id" type="file" name="file" (change)="handleFileInput($event.target.files)" />
 	</div>
 

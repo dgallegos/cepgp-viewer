@@ -1,5 +1,6 @@
 var luaToJson = require('lua-to-json')
 const fs = require('fs');
+var GuildRosterService = require('./guild-roster-service');
 
 var cepgpTraffic;
 var currentCepgp;
@@ -48,6 +49,7 @@ CepgpService.buildTrafficArray = function(cepgpTrafficArray) {
 		trafficItem.itemUrl = trafficItem.itemLink ? 'https://classic.wowhead.com/item=' + trafficItem.itemId : trafficItem.itemLink ;
 		trafficItem.timeStamp = cepgpTrafficArray[i]["8"] ? Number(cepgpTrafficArray[i]["8"]) : 0;
 		trafficItem.prio = null;
+
 		cepgpTraffic.push(trafficItem);
 	}
 	return cepgpTraffic;
@@ -59,19 +61,21 @@ CepgpService.buildCurrentCepgp = function(cepgpTraffic) {
 	// for each line item
 	for (var i = 0; i < cepgpTraffic.length; i++) {
 		var cepgpTrafficItem = cepgpTraffic[i];
-		// if name doesn't exist
-		if (cepgpTrafficItem.player && !currentCepgpBuild.hasOwnProperty(cepgpTrafficItem.player)) {
-			currentCepgpBuild[cepgpTrafficItem.player] = cepgpTrafficItem;
-		} else {
-			// if date is greater than current date
-			if(cepgpTrafficItem.player && (cepgpTrafficItem.timeStamp > currentCepgpBuild[cepgpTrafficItem.player].timeStamp)) {
-				// replace latest
+
+		if (GuildRosterService.IsCharacterInGuild(cepgpTrafficItem.player)) {
+			// if name doesn't exist
+			if (cepgpTrafficItem.player && !currentCepgpBuild.hasOwnProperty(cepgpTrafficItem.player)) {
 				currentCepgpBuild[cepgpTrafficItem.player] = cepgpTrafficItem;
+			} else {
+				// if date is greater than current date
+				if(cepgpTrafficItem.player && (cepgpTrafficItem.timeStamp > currentCepgpBuild[cepgpTrafficItem.player].timeStamp)) {
+					// replace latest
+					currentCepgpBuild[cepgpTrafficItem.player] = cepgpTrafficItem;
+				}
 			}
 		}
 	}
-	delete currentCepgpBuild.Raid;
-	delete currentCepgpBuild.Guild;
+
 	
 	currentCepgpBuild = Object.values(currentCepgpBuild);
 	// Add prio
